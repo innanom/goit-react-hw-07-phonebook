@@ -7,7 +7,7 @@ import { addContact } from 'redux/operations';
 
 export const Form = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
@@ -15,15 +15,15 @@ export const Form = () => {
       setName(event.currentTarget.value);
   };
   
-  const handleChangeNumber = event => {
-      setNumber(event.currentTarget.value);
+  const handleChangePhone = event => {
+      setPhone(event.currentTarget.value);
   }
   
-  const handleAddContact = (name, number) => {
+  const handleAddContact = (name, phone) => {
     const contact = {
       id: nanoid(),
       name,
-      number,
+      phone,
     };
       dispatch(addContact(contact));
   };
@@ -36,13 +36,13 @@ export const Form = () => {
       return;
     }
 
-    handleAddContact(name, number);
+    handleAddContact(name, phone);
     reset();
   };
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -59,15 +59,15 @@ export const Form = () => {
               required
             />
            </LabelForm>
-           <LabelForm>Number
+           <LabelForm>Phone
               <InputForm
                 type="tel"
-                name="number"
-                placeholder='Enter your telephone number'
-                value={number}
-                onChange={handleChangeNumber}
+                name="phone"
+                placeholder='Enter your telephone phone'
+                value={phone}
+                onChange={handleChangePhone}
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
               />
            </LabelForm>
