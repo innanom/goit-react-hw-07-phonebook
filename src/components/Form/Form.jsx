@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { FormContacts, LabelForm, InputForm, BtnForm } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selector';
-import { addContact } from 'redux/ContactsSlice';
+import { addContact } from 'redux/operations';
 
 export const Form = () => {
   const [name, setName] = useState('');
